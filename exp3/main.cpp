@@ -1,4 +1,3 @@
-// Code to read "I-have-a-dream.txt" and calculate character frequencies
 #include <iostream>
 #include <fstream>
 #include <unordered_map>
@@ -29,6 +28,14 @@ int main() {
 
     // Generate Huffman Codes
     HuffmanCode huffCode(huffTree);
+
+    // Output Huffman code for each character
+    std::cout << "Character Codes:" << std::endl;
+    for (const auto &pair : frequencies) {
+        char character = pair.first;
+        std::string code = huffCode.encode(std::string(1, character));
+        std::cout << character << ": " << code << std::endl;
+    }
 
     // Encode the word "dream"
     std::string word = "dream";
